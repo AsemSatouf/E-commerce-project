@@ -1,0 +1,87 @@
+<header class="custom-header" [class.scrolled]="isScrolled">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" routerLink="/">
+        <img src="/images/image_ logo.png" alt="logo" />
+      </a>
+      <div class="collapse navbar-collapse justify-content-center">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" routerLink="/">HOME</a></li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products/all">SHOP ALL</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products/men">MEN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products/women">WOMEN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products/women">WOMEN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products/kids">KIDS</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/']" fragment="contact"
+              >CONTACT US</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end gap-3">
+        <a>
+          <i class="fas fa-search"></i>
+        </a>
+        <a>
+          <i class="fas fa-shopping-cart"> </i>
+
+          <span class="badge bg-primary position-absolute">
+            {{ totalItems }}
+          </span>
+        </a>
+
+        <div class="profile-container">
+          <img
+            *ngIf="userImageUrl; else defaultIcon"
+            [src]="userImageUrl"
+            alt="User Image"
+            class="profile-img"
+            (click)="showLoginFunction()"
+          />
+
+          <ng-template #defaultIcon>
+            <i
+              class="fas fa-user-circle default-icon"
+              (click)="showLoginFunction()"
+            ></i>
+          </ng-template>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!---------------------------------------------------------------------------------------->
+<!-- الخلفية المظللة -->
+<div class="modal-backdrop" *ngIf="showLogin" (click)="showLogin=false"></div>
+
+<!-- المودال -->
+<div class="modal" *ngIf="showLogin">
+  <div class="modal-dialog modal-dialog-centered" (click)="$event.stopPropagation()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login</h5>
+        <button type="button" class="btn-close" (click)="showLogin=false"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="email" placeholder="Email" class="form-control mb-2">
+          <input type="password" placeholder="Password" class="form-control mb-2">
+          <button class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</header>

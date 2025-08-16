@@ -1,0 +1,59 @@
+<footer class="footer text-white py-5" id="contact" >
+  <div class="container">
+    <div class="row align-items-start text-center text-md-start">
+      
+      <!-- Logo & Social -->
+      <div class="col-md-4 mb-4">
+        <div class="footer-logo-section">
+          <img src="/images/image_ logo.png" alt="logo" class="mb-3" />
+          <p>Upgrade your style with our curated sets. Choose confidence, embrace your unique look.</p>
+          <div class="social-icons">
+            <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="col-md-4 mb-4 d-flex flex-column justify-content-center align-items-center">
+        <div class="footer-services">
+          <p><i class="fas fa-truck"></i> Free delivery</p>
+          <p><i class="fas fa-shield-alt"></i> Non-contact shipping</p>  
+          <p><i class="fas fa-money-bill-wave"></i> Money-back guarantee</p> 
+          <p><i class="fas fa-lock"></i> Secure payments</p>
+        </div>
+      </div>
+
+      <!-- Contact Us -->
+      <div class="col-md-4 mb-4">
+        <div class="contact-us">
+          <h5>Contact Us</h5>
+          <p><i class="fas fa-map-marker-alt"></i> Nile Street, Birzeit</p>
+          <p><i class="fas fa-envelope"></i> info@cartzio.com</p>
+          <p><i class="fas fa-phone"></i> +970 599 123 456</p>
+
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+            <input type="email" formControlName="email" placeholder="Enter your email" required />
+            <textarea formControlName="message" rows="4" placeholder="Write your message here..." required></textarea>
+            <button type="submit" [disabled]="contactForm.invalid">Send</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+        <hr class="border-light">
+
+<div class="payment-icons" style="text-align:center; font-size: 2rem;">
+
+  <i class="fab fa-cc-visa" style="margin: 0 10px;"></i>
+  <i class="fab fa-cc-mastercard" style="margin: 0 10px;"></i>
+  <i class="fab fa-cc-amex" style="margin: 0 10px;"></i>
+  <i class="fab fa-cc-paypal" style="margin: 0 10px;"></i>
+  <i class="fab fa-cc-discover" style="margin: 0 10px;"></i>
+<p class="text-center mb-0">&copy; 2025 Cartzio. Design & Develop with <i class="fas fa-heart text-danger"></i> by Shreethemes.</p>
+
+</div>
+  </div>
+</footer>

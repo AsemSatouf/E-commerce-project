@@ -1,0 +1,72 @@
+.footer {
+margin-top: 40px;
+  background-color:rgb(22, 28, 40)
+}
+
+.footer img {
+  width: 120px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer img:hover {
+  transform: scale(1.1); 
+  
+}
+
+.footer p, 
+.footer h5 {
+  margin: 0 0 10px;
+}
+
+.footer .social-icons a {
+  color: white;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+  color: #007bff;
+}
+
+.footer-services p {
+  margin-bottom: 8px;
+}
+
+.footer-services i {
+  margin-right: 8px;
+  color: white; /* أيقونات الخدمات أبيض */
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  background-color: #085bb4;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:disabled {
+  background-color: #9aadfd;
+  cursor: not-allowed;
+}
+hr.border-light {
+  border: none;
+  height: 2px;
+  background-color: #fff; /* أبيض ناصع */
+  box-shadow: 0 0 10px 3px #fff; /* هالة ضوئية بيضاء */
+  margin: 2rem 0;
+}

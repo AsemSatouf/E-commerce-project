@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.custom-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  transition: background-color 0.3s ease;
+  padding: 10px 0;
+  background-color: #d4cdcd;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 700 !important;
+  color: #222; 
+}
+
+.custom-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.nav-link {
+  font-weight: 500;
+  color: #222 !important;
+  transition: color 0.3s ease;
+}
+.navbar-brand img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+
+.navbar-brand img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+
+.navbar-brand img:active {
+  transform: scale(0.95);
+  filter: brightness(0.9);
+}
+
+
+
+.nav-link:hover {
+  color: #e60000 !important; 
+}
+.profile-container {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;   
+  object-fit: cover;     
+  display: block;
+}
+
+.default-icon {
+  margin-top: 4px;
+  font-size: 40px;
+  border-radius: 40%;    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1040;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+  display: block;
+  width: 350px; /* حجم المودال صغير */
+  border-radius: 8px;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
