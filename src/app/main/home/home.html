@@ -6,7 +6,27 @@
     <h2>Look Good. Feel Great</h2>
     <p>Cool clothes, easy shopping</p>
     <p>just for you</p>
-    <button class="btn-shop" (click)=" goToProducts()">Shop Now &#8594;</button>
+    <button class="btn-shop" (click)="goToProducts()">Shop Now &#8594;</button>
+  </div>
+  <div class="product-grid">
+    <div class="product-column" *ngFor="let product of latestProducts">
+      <div class="product-card">
+        <div class="product-image-container">
+          <img
+            [src]="'http://192.168.1.203:6060/itemimage/' + product.ImagePath"
+            [alt]="product.ItemArName"
+            class="product-image"
+          />
+        </div>
+      </div>
+
+      <div class="product-details">
+        <span class="brand-name">Cartzio</span>
+        <h3 class="product-title">{{ product.ItemArName }}</h3>
+        <div class="price-container">
+          <span class="product-price"> ${{ product.PriceLevel_Price }} </span>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
-

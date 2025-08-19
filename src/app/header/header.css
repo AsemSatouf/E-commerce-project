@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 .custom-header {
   position: fixed;
@@ -7,10 +6,10 @@
   z-index: 999;
   transition: background-color 0.3s ease;
   padding: 10px 0;
-  background-color: #d4cdcd;
+  background-color: #ddd8d8;
   font-family: "Poppins", sans-serif;
   font-size: 18px;
-  font-weight: 700 !important;
+  font-weight: bold !important;
   color: #222; 
 }
 
@@ -21,11 +20,14 @@
 }
 
 .nav-link {
-  font-weight: 500;
+  font-weight: 600;
+
   color: #222 !important;
   transition: color 0.3s ease;
 }
 .navbar-brand img {
+  width: 150px;
+  height: auto;
   transition: transform 0.3s ease, filter 0.3s ease;
   cursor: pointer;
 }
@@ -45,6 +47,7 @@
 
 
 .nav-link:hover {
+
   color: #e60000 !important; 
 }
 .profile-container {
@@ -62,8 +65,9 @@
 }
 
 .default-icon {
+font-family: "Font Awesome 5 Free" !important;
+font-size: 37px;
   margin-top: 4px;
-  font-size: 40px;
   border-radius: 40%;    
   display: flex;
   align-items: center;
@@ -93,4 +97,313 @@
 .modal-content {
   padding: 20px;
 }
+
+
+.cart-dropdown {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 450px; /* حجم كبير مناسب */
+  height: 100vh; /* يأخذ كامل ارتفاع الشاشة */
+  background: #fff;
+  box-shadow: -5px 0 25px rgba(0,0,0,0.3);
+  border-radius: 0 0 0 15px;
+  overflow-y: auto;
+  transition: right 0.4s ease;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-dropdown.show {
+  right: 0; /* يظهر من اليمين */
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #1890ff;
+  color: #fff;
+}
+
+.cart-header h5 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.cart-header small {
+  color: #e0e0e0;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cart-items {
+  flex: 1;
+  padding: 15px 20px;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.item-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.item-details h6 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.item-price {
+  color: #ff4d4f;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.item-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quantity-control button {
+  background: #eee;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.quantity-control span {
+  margin: 0 8px;
+  font-weight: 500;
+}
+
+.remove-item {
+  background: none;
+  border: none;
+  color: #ff4d4f;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.cart-summary {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  background: #f9f9f9;
+}
+
+.cart-summary .subtotal {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.cart-summary .actions button {
+  width: 48%;
+  padding: 10px 0;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cart-summary .btn-outline-secondary {
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.cart-summary .btn-outline-secondary:hover {
+  background: #f0f0f0;
+  color: black;
+}
+
+.cart-summary .btn-primary {
+  background: #1890ff;
+  color: #fff;
+}
+
+.cart-summary .btn-primary:hover {
+  background: #096dd9;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 50px 20px;
+  color: #aaa;
+}
+
+.empty-cart i {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1040;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* يخلي العناصر عاليمين */
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.search-icon:hover {
+  color: #007bff;
+}
+
+.search-input {
+  flex: 1; 
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto; /* تخليها على اليمين */
+}
+
+/* أيقونات البروفايل، البحث، الكارت */
+.header-right .default-icon,
+.header-right .search-icon,
+.header-right .fa-shopping-cart {
+  font-size: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-dark-mode {
+  background: linear-gradient(145deg, #4b5563, #1f2937);
+  color: #fefefe;
+  font-size: 1.2rem; /* صغر حجم الأيقونة */
+  width: 40px;       /* صغر قطر الدائرة */
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25), inset 0 -2px 4px rgba(255,255,255,0.1);
+}
+
+.btn-dark-mode:hover {
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35), inset 0 -2px 4px rgba(255,255,255,0.15);
+}
+
+.btn-dark-mode:active {
+  transform: rotate(-10deg) scale(0.95);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2), inset 0 -1px 3px rgba(255,255,255,0.1);
+}
+
+/* عند تفعيل الداكن */
+body.dark-mode .btn-dark-mode {
+  background: linear-gradient(145deg, #facc15, #f97316);
+  color: #1f2937;
+  transform: rotate(360deg);
+  transition: all 0.6s ease;
+}
+
+
+
+/* تحسين استجابة الهيدر */
+@media (max-width: 992px) {
+  .navbar-brand img {
+    width: 120px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .header-right .default-icon,
+  .header-right .search-icon,
+  .header-right .fa-shopping-cart {
+    font-size: 28px;
+  }
+
+  .search-container {
+    max-width: 200px;
+  }
+
+  .cart-dropdown {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header-right {
+    gap: 8px;
+  }
+
+  .navbar-brand img {
+    width: 100px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .header-right .default-icon,
+  .header-right .search-icon,
+  .header-right .fa-shopping-cart {
+    font-size: 24px;
+  }
+
+  .search-container {
+    max-width: 150px;
+  }
+}
+
 

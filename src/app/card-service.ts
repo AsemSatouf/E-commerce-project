@@ -26,10 +26,9 @@ addToCard(item: cardItem) {
     existing.quantity += item.quantity;
   }
   else{
-    this.cartItems.push({ ...item });
+    this.cartItems.push({...item});
   }
 this.cartSubject.next(this.cartItems);
-console.log('Cart items:', this.cartItems);
 }  
 removeFromCart(id: number){
   this.cartItems =this.cartItems.filter(i => i.id !==id);
@@ -43,6 +42,11 @@ updateQuantity(id: number ,quantity: number){
     else this.cartSubject.next(this.cartItems);
   }
 }
+
+  updateCart(cart: cardItem[]) {
+    this.cartItems = [...cart];
+    this.cartSubject.next(this.cartItems);
+  }
 clearCart(){
   this.cartItems = [];
   this.cartSubject.next(this.cartItems);

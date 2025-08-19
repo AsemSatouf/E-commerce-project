@@ -1,0 +1,119 @@
+<header>
+<a class="navbar-brands" routerLink="/">
+        <img src="/images/image_ logo.png" alt="logo" />
+      </a>
+</header>
+<div class="checkout-container d-flex flex-column min-vh-100">
+  
+
+  <!-- Main Content -->
+  <main class="flex-grow-1 container-fluid py-4">
+    <div class="row g-4 h-100">
+      <!-- Left Section: Form -->
+      <div class="col-lg-6 col-12">
+        <form class="checkout-form card h-100" >
+          <div class="card-body">
+            <section class="info mb-4">
+              <h2 class="card-title">Contact Information</h2>
+              <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Email Address" formControlName="email">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Your Number" maxlength="10" formControlName="phone">
+              </div>
+              <hr>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+                </div>
+              </div>
+              <div class="mt-3">
+                <select class="form-select" formControlName="country">
+                  <option value="" disabled selected>Country/Region</option>
+                  <option value="egypt">Egypt</option>
+                  <option value="usa">USA</option>
+                  <option value="uae">UAE</option>
+                </select>
+              </div>
+              <hr>
+            </section>
+
+            <section class="additional-info mb-4">
+              <h2 class="card-title">Additional Information</h2>
+              <textarea class="form-control" rows="4" placeholder="Enter any additional information..." formControlName="additionalInfo"></textarea>
+              <hr>
+            </section>
+
+            <section class="payment-info mb-4">
+              <h2 class="card-title">Payment Information</h2>
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Card Number" formControlName="cardNumber">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Cardholder Name" formControlName="cardName">
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="Expiry Date" formControlName="expiry">
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="CVV" formControlName="cvv">
+                </div>
+              </div>
+              <hr>
+            </section>
+
+            <button type="submit" class="btn btn-primary w-100" >
+              Complete Purchase ${{ totalPrice }}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right Section: Cart Summary -->
+      <div class="col-lg-6 col-12">
+        <div class="checkout-summary card h-100">
+          <div class="card-body">
+            <h2 class="card-title">Order Summary</h2>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of cartItems">
+                    <td>
+                      <img [src]="'http://192.168.1.203:6060/itemimage/' + item.imageUrl" 
+                           alt="{{item.name}}" 
+                           class="img-thumbnail" 
+                           style="width: 50px; height: 50px; object-fit: cover;">
+                    </td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price  }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ (item.price * item.quantity)  }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="summary-total mt-4 p-3 bg-light rounded">
+              <h3 class="text-end">Total: {{ totalPrice }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  
+ 
+</div>

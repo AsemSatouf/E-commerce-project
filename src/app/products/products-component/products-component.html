@@ -1,42 +1,136 @@
-<main>
-  <p class="welcomeMessage">{{ welcomeMessage }}</p>
- 
-  <div class="row g-4">
-    <div
-      class="col-12 col-sm-6 col-md-4 col-lg-3"
-      *ngFor="let product of Products"
-    >
-      <div
-        class="card product-card border-1 rounded-3 position-relative overflow-hidden"
-      >
-        <div class="img-wrapper position-relative overflow-hidden">
-          <img
-            [src]="'http://192.168.1.203:6060/itemimage/' + product.ImagePath"
-            [alt]="product.ItemArName"
-            class="card-img-top product-img"
-          />
+<main class="main-container">
+  <p class="welcome-message">{{ welcomeMessage }}</p>
 
-          <div class="btn-overlay d-flex justify-content-center gap-2">
-            <button class="btn btn-outline-dark flex-fill fw-bold py-2">
-              <i class="bi bi-eye me-2"></i> QUICK VIEW
+   <button class="filter-btn" (click)="openSlider()">
+    <i class="fa-solid fa-arrow-down-short-wide" style="font-family: 'Font Awesome 5 Free' !important;"></i> Filter
+  </button>
+
+  <div class="side-slider" [class.open]="sliderOpen">
+    <div class="slider-header">
+      <h3>Filter by Price</h3>
+      <button class="close-btn" (click)="closeSlider()">&times;</button>
+    </div>
+
+
+  <ngx-slider
+    [(value)]="minPrice"
+    [(highValue)]="maxPrice"
+    [options]="options">
+  </ngx-slider>
+
+    <div class="actions">
+      <button class="btn btn-reset" (click)="resetFilter()">Reset</button>
+      <button class="btn btn-apply" (click)="applyFilter()">Apply</button>
+
+    </div>
+  </div>
+ 
+  <div class="product-grid" #productGrid>
+    <div class="product-column" *ngFor="let product of Products">
+      <div class="
+      product-card">
+        <div class="product-image-container">
+          <img
+            *ngIf="isAll; else catgeory"
+            [src]="
+              'http://192.168.1.203:6060/itemimage/' +
+              product.itemimages[0].ImagePath
+            "
+            [alt]="product.ItemArName"
+            class="product-image"
+          />
+          <ng-template #catgeory>
+            <img
+              [src]="'http://192.168.1.203:6060/itemimage/' + product.ImagePath"
+              [alt]="product.ItemArName"
+              class="product-image"
+            />
+          </ng-template>
+
+          <div class="product-actions">
+            <button
+              class="action-btn quick-view"
+              (click)="openQuickView(product)"
+            >
+              <i class="bi bi-eye"></i> QUICK VIEW
             </button>
-            <button class="btn btn-outline-dark flex-fill fw-bold py-2" (click)="addToCart(product)">
+            <button class="action-btn add-to-cart" (click)="addToCart(product)">
               Add To Cart
             </button>
           </div>
         </div>
 
-        <div class="card-body p-3">
-          <h6 class="text-muted mb-1">Cartzio</h6>
-          <h5 class="card-title mb-2">{{ product.ItemArName }}</h5>
-
-          <div class="price d-flex align-items-center">
-            <span class="text-primary fw-bold fs-5">
-              ${{ product.PriceLevel_Price }}
-            </span>
+        <div class="product-details">
+          <span class="brand-name">Cartzio</span>
+          <h3 class="product-title">{{ product.ItemArName }}</h3>
+          <div class="price-container">
+            <span class="product-price"> ${{ product.PriceLevel_Price }} </span>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <ng-template #quickView let-modal>
+    <div class="modal-header border-0">
+      <h5 class="modal-title">{{ selectedProduct?.ItemArName }}</h5>
+      <button
+        type="button"
+        class="btn-close"
+        (click)="quantity = 1; modal.dismiss()"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <div class="row g-4">
+        <div class="col-md-6 text-center">
+          <img
+            *ngIf="isAll; else catgeory"
+            [src]="
+              'http://192.168.1.203:6060/itemimage/' +
+              selectedProduct?.itemimages[0].ImagePath
+            "
+            class="img-fluid rounded"
+            alt="{{ selectedProduct?.ItemArName }}"
+          />
+          <ng-template #catgeory>
+            <img
+              [src]="
+                'http://192.168.1.203:6060/itemimage/' +
+                selectedProduct?.ImagePath
+              "
+              class="img-fluid rounded"
+              alt="{{ selectedProduct?.ItemArName }}"
+            />
+          </ng-template>
+        </div>
+
+        <div class="col-md-6">
+          <h4 class="text-primary">
+            {{ selectedProduct?.PriceLevel_Price | currency }}
+          </h4>
+          <p class="text-muted">{{ selectedProduct?.ItemArName }}</p>
+          <div class="d-flex align-items-center mb-3">
+            <button
+              class="btn btn-outline-secondary me-2"
+              (click)="decreaseQuantity()"
+            >
+              -
+            </button>
+            <label class="me-2">Quantity: {{ quantity }}</label>
+            <button
+              class="btn btn-outline-secondary me-2"
+              (click)="increaseQuantity()"
+            >
+              +
+            </button>
+          </div>
+          <button
+            class="btn btn-success w-100"
+            (click)="addToCart(selectedProduct); modal.dismiss()"
+          >
+            <i class="fas fa-cart-plus me-2"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </main>

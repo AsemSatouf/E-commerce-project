@@ -1,47 +1,185 @@
+
 <header class="custom-header" [class.scrolled]="isScrolled">
   <div class="container">
+    
+
     <nav class="navbar navbar-expand-lg navbar-light">
+   <button (click)="toggleDarkMode()" class="btn btn-dark-mode" >
+  <span *ngIf="!isDarkMode">🌙</span>
+  <span *ngIf="isDarkMode">☀️</span>
+</button>
+
+      <!-- Logo -->
       <a class="navbar-brand" routerLink="/">
         <img src="/images/image_ logo.png" alt="logo" />
       </a>
-      <div class="collapse navbar-collapse justify-content-center">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" routerLink="/">HOME</a></li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/products/all">SHOP ALL</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/products/men">MEN</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/products/women">WOMEN</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/products/women">WOMEN</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/products/kids">KIDS</a>
-          </li>
 
+      <!-- Toggler -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div
+        class="collapse navbar-collapse justify-content-center"
+        id="mainNavbar"
+      >
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/']" fragment="contact"
+            <a class="nav-link" (click)="resetScroll()" routerLink="/">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              (click)="resetScroll()"
+              routerLink="/products/all"
+              >SHOP ALL</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              (click)="resetScroll()"
+              routerLink="/products/men"
+              >MEN</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              (click)="resetScroll()"
+              routerLink="/products/women"
+              >WOMEN</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              (click)="resetScroll()"
+              routerLink="/products/kids"
+              >KIDS</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              (click)="resetScroll()"
+              routerLink="/"
+              fragment="contact"
               >CONTACT US</a
             >
           </li>
         </ul>
       </div>
-      <div class="collapse navbar-collapse justify-content-end gap-3">
-        <a>
-          <i class="fas fa-search"></i>
-        </a>
-        <a>
-          <i class="fas fa-shopping-cart"> </i>
 
-          <span class="badge bg-primary position-absolute">
+      <!-- Right side -->
+  <div class="d-flex align-items-center gap-3">
+        <div
+          class="search-container d-flex align-items-center justify-content-end"
+        >
+          <div [hidden]="!isSearching">
+            <input
+              [(ngModel)]="searchQuery"
+              type="text"
+              (input)="onSearchInput()"
+              (keyup.enter)="onSearchClick()"
+              class="form-control search-input"
+              placeholder="Search..."
+            />
+          </div>
+          <i
+            (click)="onSearchClick()"
+            class="fas fa-search search-icon"
+            style="font-family: 'Font Awesome 5 Free' !important"
+          ></i>
+        </div>
+
+        <!-- Cart -->
+        <a class="position-relative">
+          <i
+            class="fas fa-shopping-cart fa-lg"
+            (click)="toggleCart()"
+            style="font-family: 'Font Awesome 5 Free' !important"
+          ></i>
+          <span
+            *ngIf="totalItems > 0"
+            class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle"
+          >
             {{ totalItems }}
           </span>
         </a>
 
+        <!-- Cart Dropdown -->
+        <div class="cart-dropdown" [class.show]="showCart">
+          <!-- Header -->
+          <div class="cart-header">
+            <h5>Shopping Cart</h5>
+            <small>{{ totalItems }} items</small>
+            <button class="btn-close" (click)="toggleCart()">&times;</button>
+          </div>
+
+          <!-- Cart Items -->
+          <div class="cart-items">
+            <!-- Empty cart -->
+            <div *ngIf="cartItems.length === 0" class="empty-cart">
+              <i
+                class="fas fa-shopping-cart"
+                style="font-family: 'Font Awesome 5 Free' !important"
+              ></i>
+              <p>Your cart is empty</p>
+            </div>
+
+            <!-- Items list -->
+            <div *ngFor="let item of cartItems" class="cart-item">
+              <img
+                [src]="'http://192.168.1.203:6060/itemimage/' + item.imageUrl"
+                alt="{{ item.name }}"
+                class="item-image"
+              />
+              <div class="item-details">
+                <h6>{{ item.name }}</h6>
+                <div class="item-price">{{ item.price | currency }}</div>
+                <div class="item-actions">
+                  <div class="quantity-control">
+                    <button (click)="decreaseQuantity(item)">-</button>
+                    <span>{{ item.quantity }}</span>
+                    <button (click)="increaseQuantity(item)">+</button>
+                  </div>
+                  <button class="remove-item" (click)="removeItem(item)">
+                    <i
+                      class="fas fa-trash"
+                      style="font-family: 'Font Awesome 5 Free' !important"
+                    >
+                    </i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary -->
+          <div class="cart-summary">
+            <div class="subtotal">
+              <span>Subtotal:</span>
+              <span>{{ calculateSubtotal() | currency }}</span>
+            </div>
+            <div class="actions">
+              <button class="btn btn-outline-secondary" (click)="clearCart()">
+                Clear Cart
+              </button>
+              <button class="btn btn-primary" (click)="checkout()">
+                Checkout Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile -->
         <div class="profile-container">
           <img
             *ngIf="userImageUrl; else defaultIcon"
@@ -50,7 +188,6 @@
             class="profile-img"
             (click)="showLoginFunction()"
           />
-
           <ng-template #defaultIcon>
             <i
               class="fas fa-user-circle default-icon"
@@ -61,27 +198,38 @@
       </div>
     </nav>
   </div>
-  <!---------------------------------------------------------------------------------------->
+</header>
+ 
+
 <!-- الخلفية المظللة -->
-<div class="modal-backdrop" *ngIf="showLogin" (click)="showLogin=false"></div>
+<div class="modal-backdrop" *ngIf="showLogin" (click)="showLogin = false"></div>
 
 <!-- المودال -->
 <div class="modal" *ngIf="showLogin">
-  <div class="modal-dialog modal-dialog-centered" (click)="$event.stopPropagation()">
+  <div
+    class="modal-dialog modal-dialog-centered"
+    (click)="$event.stopPropagation()"
+  >
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Login</h5>
-        <button type="button" class="btn-close" (click)="showLogin=false"></button>
+        <button
+          type="button"
+          class="btn-close"
+          (click)="showLogin = false"
+        ></button>
       </div>
       <div class="modal-body">
         <form>
-          <input type="email" placeholder="Email" class="form-control mb-2">
-          <input type="password" placeholder="Password" class="form-control mb-2">
+          <input type="email" placeholder="Email" class="form-control mb-2" />
+          <input
+            type="password"
+            placeholder="Password"
+            class="form-control mb-2"
+          />
           <button class="btn btn-primary w-100">Login</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-
-</header>

@@ -19,10 +19,10 @@
       <!-- Services -->
       <div class="col-md-4 mb-4 d-flex flex-column justify-content-center align-items-center">
         <div class="footer-services">
-          <p><i class="fas fa-truck"></i> Free delivery</p>
-          <p><i class="fas fa-shield-alt"></i> Non-contact shipping</p>  
-          <p><i class="fas fa-money-bill-wave"></i> Money-back guarantee</p> 
-          <p><i class="fas fa-lock"></i> Secure payments</p>
+          <p><i class="fas fa-truck" style="font-family: 'Font Awesome 5 Free' !important;"></i> Free delivery</p>
+          <p><i class="fas fa-shield-alt" style="font-family: 'Font Awesome 5 Free' !important;"></i> Non-contact shipping</p>  
+          <p><i class="fas fa-money-bill-wave" style="font-family: 'Font Awesome 5 Free' !important;"></i> Money-back guarantee</p> 
+          <p><i class="fas fa-lock" style="font-family: 'Font Awesome 5 Free' !important;"></i> Secure payments</p>
         </div>
       </div>
 
@@ -30,9 +30,9 @@
       <div class="col-md-4 mb-4">
         <div class="contact-us">
           <h5>Contact Us</h5>
-          <p><i class="fas fa-map-marker-alt"></i> Nile Street, Birzeit</p>
-          <p><i class="fas fa-envelope"></i> info@cartzio.com</p>
-          <p><i class="fas fa-phone"></i> +970 599 123 456</p>
+          <p><i class="fas fa-map-marker-alt" style="font-family: 'Font Awesome 5 Free' !important;"></i> Nile Street, Birzeit</p>
+          <p><i class="fas fa-envelope"style="font-family: 'Font Awesome 5 Free' !important;"></i> info@cartzio.com</p>
+          <p><i class="fas fa-phone" style="font-family: 'Font Awesome 5 Free' !important;"></i> +970 599 123 456</p>
 
           <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
             <input type="email" formControlName="email" placeholder="Enter your email" required />
@@ -46,14 +46,19 @@
         <hr class="border-light">
 
 <div class="payment-icons" style="text-align:center; font-size: 2rem;">
+  <!-- أيقونات الدفع المجانية -->
+  <i class="fas fa-credit-card" style="margin: 0 10px;"></i> <!-- بديل عن Visa -->
+  <i class="fas fa-wallet" style="margin: 0 10px;"></i> <!-- بديل عن MasterCard -->
+  <i class="fas fa-money-bill-wave" style="margin: 0 10px;"></i> <!-- بديل عن Amex -->
+  <i class="fab fa-paypal" style="margin: 0 10px;"></i> <!-- PayPal مجاني -->
+  <i class="fas fa-credit-card" style="margin: 0 10px;"></i> <!-- بديل عن Discover -->
 
-  <i class="fab fa-cc-visa" style="margin: 0 10px;"></i>
-  <i class="fab fa-cc-mastercard" style="margin: 0 10px;"></i>
-  <i class="fab fa-cc-amex" style="margin: 0 10px;"></i>
-  <i class="fab fa-cc-paypal" style="margin: 0 10px;"></i>
-  <i class="fab fa-cc-discover" style="margin: 0 10px;"></i>
-<p class="text-center mb-0">&copy; 2025 Cartzio. Design & Develop with <i class="fas fa-heart text-danger"></i> by Shreethemes.</p>
-
+  <!-- النص التوضيحي -->
+  <p class="text-center mb-0">
+    &copy; 2025 Cartzio. Design & Develop with 
+    <i class="fas fa-heart text-danger"></i> by Shreethemes.
+  </p>
 </div>
+
   </div>
 </footer>

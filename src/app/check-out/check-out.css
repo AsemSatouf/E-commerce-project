@@ -1,0 +1,129 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f0f4ff, #e6f0ff);
+  z-index: 9999;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* الحاوية الرئيسية */
+.checkout-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  max-width: 1300px;
+}
+
+/* النماذج والمُلخص */
+.checkout-form, .checkout-summary {
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 1.25rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08);
+  flex: 1 1 45%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 5px solid #0d6efd; /* لمسة أنيقة */
+}
+
+.checkout-form:hover, .checkout-summary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.12);
+}
+
+/* العناوين */
+h2, h3 {
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #0d6efd;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* الإدخالات */
+input, select, textarea {
+  margin-bottom: 20px;
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* زر الشراء */
+button.btn-primary {
+  width: 100%;
+  padding: 0.85rem;
+  font-weight: 700;
+  color: black;
+  font-size: 1.1rem;
+  border-radius: 0.75rem;
+  background: #f7c948;
+  border: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button.btn-primary:hover {
+  background: linear-gradient(45deg, #3b82f6, #0d6efd);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* الجدول */
+table.table {
+  margin-top: 20px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.05);
+}
+
+.table th, .table td {
+  text-align: center;
+  padding: 0.75rem 1rem;
+}
+
+.table thead {
+  background: #0d6efd;
+  color: #fff;
+  font-weight: 600;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+/* تحسين شكل hr */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #0d6efd, #3b82f6);
+  margin: 25px 0;
+  border-radius: 1px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* استجابة التصميم */
+@media (max-width: 992px) {
+  .checkout-container {
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  .checkout-form, .checkout-summary {
+    flex: 1 1 100%;
+    margin-bottom: 2rem;
+  }
+}

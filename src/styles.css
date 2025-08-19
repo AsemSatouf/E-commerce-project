@@ -1,1 +1,396 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #eff0f3;
+}
+*{
+  font-family: 'Montserrat', sans-serif !important;
+
+}
+i, .fab, .fas {
+  font-family: "Font Awesome 5 Free" !important;
+}
+
+/* داك مود */
+body.dark-mode {
+  background-color: rgb(22, 28, 40);
+  color: #f5f5f5;
+}
+
+body.dark-mode body {
+  background-color: rgb(22, 28, 40);
+  color: #f5f5f5;
+}
+
+body.dark-mode .custom-header {
+  background-color: rgb(22, 28, 40);
+
+}
+body.dark-mode .custom-header.scrolled {
+  background-color: rgb(37, 42, 53);
+
+}
+body.dark-mode .nav-link  {
+  color: #f5f5f5 !important;
+}
+body.dark-mode .navbar-brand img {
+    filter: brightness(0) invert(1);
+}
+body.dark-mode .navbar-brand img:hover {
+  filter: brightness(0) invert(1); /* يبقى كما هو */
+    transform: none; }
+
+    body.dark-mode .profile-container i{
+          color: white;
+    }
+ body.dark-mode header i,
+body.dark-mode header .fas,
+body.dark-mode header .fab {
+    color: #fff !important; /* اللون أبيض */
+}
+body.dark-mode #main-img img {
+  background-color: rgb(37, 42, 53)!important;
+}
+body.dark-mode .btn-shop{
+  background-color: white!important;
+  color: black!important;
+}
+
+
+/* Dark Mode للمنتجات */
+body.dark-mode .product-grid {
+  gap: 25px;
+  margin-top: 40px;
+}
+
+body.dark-mode .product-card {
+  background: #1e1e2f; /* خلفية داكنة */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* ظل أعمق ليتناسب مع الخلفية الداكنة */
+}
+
+body.dark-mode .product-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .product-actions {
+  background: rgba(30, 30, 30, 0.95); /* خلفية داكنة للأزرار عند hover */
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+body.dark-mode .action-btn {
+  background: #2a2a3d; /* زر داكن */
+  border: 1px solid #444;
+  color: #fff;
+}
+
+body.dark-mode .action-btn:hover {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+body.dark-mode .brand-name {
+  color: #aaa;
+}
+
+body.dark-mode .product-title {
+  color: #fff;
+}
+
+body.dark-mode .product-price {
+  color: #60a5fa; /* أزرق فاتح يتناسب مع الداكن */
+}
+
+/* صورة المنتج يمكن إضافة تأثير خفيف */
+body.dark-mode .product-image {
+  filter: brightness(0.9);
+}
+
+body.dark-mode .product-card:hover .product-image {
+  filter: brightness(1); /* زيادة خفيفة عند hover */
+}
+/* Dark Mode للسايدبار */
+body.dark-mode .side-slider {
+  background-color: #1e1e2f; /* خلفية داكنة */
+  box-shadow: 2px 0 15px rgba(0,0,0,0.6); /* ظل أعمق */
+  color: #fff; /* نص أبيض */
+}
+
+/* عنوان السايدبار */
+body.dark-mode .slider-header h3 {
+  color: #fff;
+}
+
+/* زر الإغلاق */
+body.dark-mode .close-btn {
+  background: #2a2a3d;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .close-btn:hover {
+  background: #ff4d4d;
+  color: #fff;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* الأزرار داخل السايدبار */
+body.dark-mode .btn-apply {
+  background: #2563eb;
+  color: #fff;
+}
+
+body.dark-mode .btn-apply:hover {
+  background: #3b82f6;
+}
+
+body.dark-mode .btn-reset {
+  background: #b02a37;
+  color: #fff;
+}
+
+body.dark-mode .btn-reset:hover {
+  background: #dc3545;
+}
+
+/* ngx-slider Dark Mode */
+body.dark-mode ::ng-deep .ngx-slider .ngx-slider-bar {
+  background: #444; /* شريط داكن */
+}
+
+body.dark-mode ::ng-deep .ngx-slider .ngx-slider-selection {
+  background: linear-gradient(90deg, #3b82f6, #0d6efd);
+}
+
+body.dark-mode ::ng-deep .ngx-slider .ngx-slider-pointer {
+  background: #2a2a3d;
+  border: 3px solid #3b82f6;
+}
+
+body.dark-mode ::ng-deep .ngx-slider .ngx-slider-pointer:hover {
+  background: #2563eb;
+  border-color: #fff;
+}
+
+body.dark-mode ::ng-deep .ngx-slider .ngx-slider-bubble {
+  color: #fff; /* نص أبيض */
+}
+
+body.dark-mode ::ng-deep .ngx-slider .ngx-slider-tick {
+  background: #666;
+}
+
+body.dark-mode ::ng-deep .ngx-slider .ngx-slider-tick.ngx-slider-selected {
+  background: #3b82f6;
+}
+/* Dark Mode لسلة التسوق */
+body.dark-mode .cart-dropdown {
+  background: #1e1e2f; /* خلفية داكنة */
+  box-shadow: -5px 0 25px rgba(0,0,0,0.6); /* ظل أعمق */
+}
+
+body.dark-mode .cart-header {
+  background: #2563eb; /* أزرق داكن متناسق */
+  color: #fff;
+}
+
+body.dark-mode .cart-header small {
+  color: #ccc;
+}
+
+body.dark-mode .btn-close {
+  color: #fff;
+}
+
+body.dark-mode .cart-items {
+  padding: 15px 20px;
+}
+
+body.dark-mode .cart-item {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+body.dark-mode .item-details h6,
+body.dark-mode .quantity-control span {
+  color: #fff;
+}
+
+body.dark-mode .item-price,
+body.dark-mode .remove-item {
+  color: #ff6b6b; /* لون واضح للمنتجات */
+}
+
+body.dark-mode .quantity-control button {
+  background: #2a2a3d !important; /* زر داكن */
+  color: #fff;
+}
+
+body.dark-mode .cart-summary {
+  background: #2a2a3d;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+body.dark-mode .cart-summary .subtotal,
+body.dark-mode .cart-summary .actions button {
+  color: #fff;
+}
+
+body.dark-mode .cart-summary .btn-outline-secondary {
+  background: #444 !important; 
+  border: 1px solid #666;
+  color: #fff;
+}
+
+body.dark-mode .cart-summary .btn-outline-secondary:hover {
+  background: #555 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .cart-summary .btn-primary {
+  background: #3b82f6;
+  color: #fff;
+}
+
+body.dark-mode .cart-summary .btn-primary:hover {
+  background: #2563eb;
+}
+
+body.dark-mode .empty-cart {
+  color: #ccc;
+}
+
+body.dark-mode .empty-cart i {
+  color: #fff;
+}
+
+body.dark-mode .cart-overlay {
+  background: rgba(0,0,0,0.6);
+}
+/* Dark Mode للـ checkout */
+body.dark-mode :host {
+  background: linear-gradient(135deg, #1a1a2e, #252539); /* خلفية داكنة */
+  color: #f0f0f0;
+}
+
+body.dark-mode .checkout-form,
+body.dark-mode .checkout-summary {
+  background: #2a2a3d; /* خلفية داكنة للنماذج */
+  border-top: 5px solid #3b82f6; /* لمسة ألوان متناسقة */
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.4);
+  color: #f0f0f0;
+}
+
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #3b82f6;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background: #3a3a4d;
+  border: 1px solid #555;
+  color: #f0f0f0;
+}
+
+body.dark-mode input:focus,
+body.dark-mode select:focus,
+body.dark-mode textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 0.25rem rgba(59,130,246,0.25);
+}
+
+body.dark-mode button.btn-primary {
+  background: #f7c948;
+  color: #000;
+}
+
+body.dark-mode button.btn-primary:hover {
+  background: linear-gradient(45deg, #3b82f6, #0d6efd);
+  color: #fff;
+}
+
+body.dark-mode table.table {
+  background: #2a2a3d;
+  color: #f0f0f0;
+  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.3);
+}
+
+body.dark-mode .table thead {
+  background: #3b82f6 ;
+  color: #fff;
+}
+
+body.dark-mode .table tbody tr:nth-child(even) {
+  background: #3a3a4d !important;
+}
+
+body.dark-mode hr {
+  background: linear-gradient(to right, #3b82f6, #0d6efd);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder,
+body.dark-mode select::placeholder {
+  color: #f0f0f0; /* أبيض فاتح */
+  opacity: 1; /* لتجنب شفافية متغيرة */
+}
+/* Dark Mode للـ Quick View Modal */
+body.dark-mode ng-template#quickView,
+body.dark-mode .modal-header,
+body.dark-mode .modal-body,
+body.dark-mode .modal-footer {
+  background-color: #1a1a1a !important;
+  color: #f0f0f0 !important;
+}
+
+body.dark-mode .modal-title {
+  color: #f0f0f0 !important;
+}
+
+body.dark-mode .btn-close {
+  filter: brightness(1.5) !important; /* يجعل زر الإغلاق واضح */
+}
+
+body.dark-mode .btn-outline-secondary {
+  background-color: #333 !important;
+  border-color: #555 !important;
+  color: #f0f0f0 !important;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+  background-color: #444 !important;
+  border-color: #666 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .btn-success {
+  background-color: #28a745 !important;
+  border-color: #218838 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .btn-success:hover {
+  background-color: #218838 !important;
+  border-color: #1e7e34 !important;
+}
+
+body.dark-mode img.img-fluid {
+  filter: brightness(0.9) !important; /* يجعل الصورة متناسقة مع الداكن */
+}
+
+body.dark-mode .text-primary {
+  color: #4dabf7 !important;
+}
+
+body.dark-mode .text-muted {
+  color: #ccc !important;
+}
+/* زر الإغلاق في Dark Mode */
+body.dark-mode .btn-close {
+  filter: invert(1) !important; /* يحول لون الـ X للأبيض */
+  background-color: transparent !important;
+}
+
+  
